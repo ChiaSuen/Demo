@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Information Portal</title>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			color: #333;
+			font-family: monospace;
+			font-size: 15px;
+			text-align: left;
+		}
+		th {
+			background-color: #333;
+			color: white;
+		}
+		tr:nth-child(even) {background-color: #f2f2f2}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Employee Information Portal</h1>
+		<div class="search-container">
+			<input type="text" placeholder="Search by phone...">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Department</th>
+				<th>Position</th>
+			</tr>
+			<tr>
+				<td>John Doe</td>
+				<td>123-456-7890</td>
+				<td>johndoe@example.com</td>
+				<td>Marketing</td>
+				<td>Manager</td>
+			</tr>
+			<tr>
+				<td>Jane Doe</td>
+				<td>987-654-3210</td>
+				<td>janedoe@example.com</td>
+				<td>Sales</td>
+				<td>Sales Representative</td>
+			</tr>
+			<tr>
+				<td>Bob Smith</td>
+				<td>555-555-5555</td>
+				<td>bobsmith@example.com</td>
+				<td>IT Support</td>
+				<td>Technician</td>
+			</tr>
+
+		 </table>
+
+    </div>
+
+    <script type="text/javascript">
+    	document.querySelector('.search-container input').addEventListener('keyup', function(e) {
+    		const term = e.target.value.toLowerCase();
+    		const rows = document.querySelectorAll('table tr:not(:first-child)');
+    		rows.forEach(row => {
+    			const name = row.querySelector('td:first-child').textContent.toLowerCase();
+    			const phone = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+    			if (name.indexOf(term) > -1 || phone.indexOf(term) > -1) {
+    				row.style.display = '';
+    			} else {
+    				row.style.display = 'none';
+    		     }
+    	     });
+     });
+    </script>
+
+ </body>
+
+ </html>
+
