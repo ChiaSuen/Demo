@@ -1,81 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Employee Information Portal</title>
-	<style type="text/css">
-		table {
-			border-collapse: collapse;
-			width: 100%;
-			color: #333;
-			font-family: monospace;
-			font-size: 15px;
-			text-align: left;
-		}
-		th {
-			background-color: #333;
-			color: white;
-		}
-		tr:nth-child(even) {background-color: #f2f2f2}
-	</style>
+  <meta charset="UTF-8">
+  <title>Phone Contract</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-LgW8iP5wm+xzRYY5tUpHKFXOWw8d21xSXXt2LHeNCi/dDbfW8j4z4I4b+j4euO/ZoJmE8B1SjI2eOvVRlY4l0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .search input[type="text"] {
+      width: 60%;
+      max-width: 500px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 20px 0 0 20px;
+      border: none;
+      font-size: 18px;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .search button {
+      height: 40px;
+      width: 100px;
+      border-radius: 0 20px 20px 0;
+      border: none;
+      background-color: #1E90FF;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .search button:hover {
+      background-color: #0066CC;
+    }
+
+    @media screen and (max-width: 640px) {
+      .search input[type="text"] {
+        width: 50%;
+      }
+
+      .search button {
+        width: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
-	<div class="container">
-		<h1>Employee Information Portal</h1>
-		<div class="search-container">
-			<input type="text" placeholder="Search by phone...">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</div>
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Phone</th>
-				<th>Email</th>
-				<th>Department</th>
-				<th>Position</th>
-			</tr>
-			<tr>
-				<td>John Doe</td>
-				<td>123-456-7890</td>
-				<td>johndoe@example.com</td>
-				<td>Marketing</td>
-				<td>Manager</td>
-			</tr>
-			<tr>
-				<td>Jane Doe</td>
-				<td>987-654-3210</td>
-				<td>janedoe@example.com</td>
-				<td>Sales</td>
-				<td>Sales Representative</td>
-			</tr>
-			<tr>
-				<td>Bob Smith</td>
-				<td>555-555-5555</td>
-				<td>bobsmith@example.com</td>
-				<td>IT Support</td>
-				<td>Technician</td>
-			</tr>
-
-		 </table>
-
+ 	<script>
+	function buttonOnClick() {
+  		const phoneNumber = document.querySelector('input[type="text"]').value;
+  		window.location.replace(phoneNumber+".html");
+	}
+	</script>
+  <div class="container">
+    <div class="logo">
+      <img src="teleperformance-vector-logo.png" alt="Employee Icon" width="450">
     </div>
-
-    <script type="text/javascript">
-    	document.querySelector('.search-container input').addEventListener('keyup', function(e) {
-    		const term = e.target.value.toLowerCase();
-    		const rows = document.querySelectorAll('table tr:not(:first-child)');
-    		rows.forEach(row => {
-    			const name = row.querySelector('td:first-child').textContent.toLowerCase();
-    			const phone = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
-    			if (name.indexOf(term) > -1 || phone.indexOf(term) > -1) {
-    				row.style.display = '';
-    			} else {
-    				row.style.display = 'none';
-    		     }
-    	     });
-     });
-    </script>
-
- </body>
-
- </html>
-
+    <div class="search" id = "search">
+      <input type="text" id="search_input" placeholder="Enter employee phone...">
+      <button id="search_button" onclick="buttonOnClick()">Search</button>
+    </div>
+  </div>
+</body>
+</html>
