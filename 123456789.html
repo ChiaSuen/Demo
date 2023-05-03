@@ -74,7 +74,7 @@
     breakdownTable += '<tr><td>Data Package</td><td>$' + package.toFixed(2) + '</td></tr>';
 
     var call = cost * 0.2;
-    breakdownTable += '<tr><td>Call</td><td>$' + call.toFixed(2) + '</td></tr>';
+    breakdownTable += '<tr><td>call</td><td>$' + call.toFixed(2) + '</td></tr>';
 
     var total = parseFloat(package) + parseFloat(call);
     breakdownTable += '<tr><td>Total</td><td>$' + total.toFixed(2) + '</td></tr>';
@@ -85,15 +85,10 @@
   breakdownTable += '</table>';
 
   // Open the popup window and write the breakdown table to it
-  var popupWindow = window.open('./popup.html', 'popupWindow', 'width=400, height=300');
-
-  // Convert the string to an HTML element
-  var range = popupWindow.document.createRange();
-  range.setStart(popupWindow.document.body, 0);
-  var fragment = range.createContextualFragment(breakdownTable);
-
-  // Append the element to the popup window
-  popupWindow.document.body.appendChild(fragment);
+  var popupWindow = window.open("./popup.html", "popupWindow", "width=400, height=300");
+  var newDiv = popupWindow.document.createElement('div');
+  newDiv.innerHTML = breakdownTable;
+  popupWindow.document.body.appendChild(newDiv);
 }
 </script>
     </div>
