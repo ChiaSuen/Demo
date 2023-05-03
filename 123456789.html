@@ -64,9 +64,9 @@
 </table>
 
 <script>
- function openPopup(cost) {
+function openPopup(cost) {
   // Generate the breakdown table for the bill
-  var breakdownTable = '<table id="breakdownTBL">';
+  var breakdownTable = '<table id = "breakdownTBL">';
   breakdownTable += '<tr><th>Item</th><th>Cost</th></tr>';
 
   if (cost > 0) {
@@ -84,11 +84,14 @@
 
   breakdownTable += '</table>';
 
-  // Open the popup window and write the breakdown table to it
-  var popupWindow = window.open("./popup.html", "popupWindow", "width=400, height=300");
-  var newDiv = popupWindow.document.createElement('div');
-  newDiv.innerHTML = breakdownTable;
-  popupWindow.document.body.appendChild(newDiv);
+  // Open the popup window
+  var popupWindow = window.open('./popup.html', 'popupWindow', 'width=400, height=300');
+
+  // Wait for the popup window to finish loading
+  popupWindow.onload = function() {
+    // Append the breakdown table to the popup window's body
+    popupWindow.document.body.appendChild(new DOMParser().parseFromString(breakdownTable, 'text/html').body.firstChild);
+  };
 }
 </script>
     </div>
