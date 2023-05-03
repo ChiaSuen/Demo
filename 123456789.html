@@ -65,32 +65,36 @@
 
 <script>
  function openPopup(cost) {
-    // Generate the breakdown table for the bill
-    var breakdownTable = '<table id = "breakdownTBL">';
-    breakdownTable += '<tr><th>Item</th><th>Cost</th></tr>';
-  
-    if (cost > 0) {
-      var package = cost * 0.8;
-      breakdownTable += '<tr><td>Data Package</td><td>$' + package.toFixed(2) + '</td></tr>';
-    
-      var call = cost * 0.2;
-      breakdownTable += '<tr><td>call</td><td>$' + call.toFixed(2) + '</td></tr>';
-    
-      var total = parseFloat(package) + parseFloat(call);
-      breakdownTable += '<tr><td>Total</td><td>$' + total.toFixed(2) + '</td></tr>';
-    } else {
-      breakdownTable += '<tr><td colspan="2">No bill</td></tr>';
-    }
-  
-    breakdownTable += '</table>';
-  
-    // Open the popup window and insert the table into it
-    var popupWindow = window.open("./popup.html", "popupWindow", "width=400, height=300");
-    var popupBody = popupWindow.document.body;
-    var tableContainer = popupWindow.document.createElement('div');
-    tableContainer.innerHTML = breakdownTable;
-    popupBody.appendChild(tableContainer);
+  // Generate the breakdown table for the bill
+  var breakdownTable = '<table id="breakdownTBL">';
+  breakdownTable += '<tr><th>Item</th><th>Cost</th></tr>';
+
+  if (cost > 0) {
+    var package = cost * 0.8;
+    breakdownTable += '<tr><td>Data Package</td><td>$' + package.toFixed(2) + '</td></tr>';
+
+    var call = cost * 0.2;
+    breakdownTable += '<tr><td>Call</td><td>$' + call.toFixed(2) + '</td></tr>';
+
+    var total = parseFloat(package) + parseFloat(call);
+    breakdownTable += '<tr><td>Total</td><td>$' + total.toFixed(2) + '</td></tr>';
+  } else {
+    breakdownTable += '<tr><td colspan="2">No bill</td></tr>';
   }
+
+  breakdownTable += '</table>';
+
+  // Open the popup window and write the breakdown table to it
+  var popupWindow = window.open('./popup.html', 'popupWindow', 'width=400, height=300');
+
+  // Convert the string to an HTML element
+  var range = popupWindow.document.createRange();
+  range.setStart(popupWindow.document.body, 0);
+  var fragment = range.createContextualFragment(breakdownTable);
+
+  // Append the element to the popup window
+  popupWindow.document.body.appendChild(fragment);
+}
 </script>
     </div>
   </div>
