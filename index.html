@@ -4,7 +4,61 @@
   <meta charset="UTF-8">
   <title>Phone Contract</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-LgW8iP5wm+xzRYY5tUpHKFXOWw8d21xSXXt2LHeNCi/dDbfW8j4z4I4b+j4euO/ZoJmE8B1SjI2eOvVRlY4l0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
+   <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .search input[type="text"] {
+      width: 60%;
+      max-width: 500px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 20px 0 0 20px;
+      border: none;
+      font-size: 18px;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .search button {
+      height: 40px;
+      width: 100px;
+      border-radius: 0 20px 20px 0;
+      border: none;
+      background-color: #1E90FF;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .search button:hover {
+      background-color: #0066CC;
+    }
+
+    @media screen and (max-width: 640px) {
+      .search input[type="text"] {
+        width: 50%;
+      }
+
+      .search button {
+        width: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
  	<script>
