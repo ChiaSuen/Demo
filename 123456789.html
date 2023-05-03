@@ -86,7 +86,7 @@
   
     // Open the popup window and write the breakdown table to it
    var popupWindow = window.open("popup.html", "popupWindow", "width=400, height=300");
-   popupWindow.location.assign("https://chiasuen.github.io/Demo/popup.html");
+   popupWindow.location.replace('https://chiasuen.github.io/Demo/popup.html');
    popupWindow.document.write(breakdownTable);
    popupWindow.document.close();
   }
