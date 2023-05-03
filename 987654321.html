@@ -65,30 +65,34 @@
 
 <script>
   function openPopup(cost) {
-    // Generate the breakdown table for the bill
-    var breakdownTable = '<table>';
-    breakdownTable += '<tr><th>Item</th><th>Cost</th></tr>';
-  
-    if (cost > 0) {
+  // Generate the breakdown table for the bill
+  var breakdownTable = '<table id = "breakdownTBL">';
+  breakdownTable += '<tr><th>Item</th><th>Cost</th><th>Reason</th></tr>';
+
+  if (cost > 0) {
       var package = cost * 0.8;
-      breakdownTable += '<tr><td>Data Package</td><td>$' + package.toFixed(2) + '</td></tr>';
+      breakdownTable += '<tr><td>Data Package</td><td>$' + package.toFixed(2) + '</td><td>Internet usage over the package limit 9/6 gb, additional $30 dollars charged</td></tr>';
     
       var call = cost * 0.2;
-      breakdownTable += '<tr><td>call</td><td>$' + call.toFixed(2) + '</td></tr>';
+      breakdownTable += '<tr><td>Call</td><td>$' + call.toFixed(2) + '</td><td>Phone usage</td></tr>';
     
       var total = parseFloat(package) + parseFloat(call);
-      breakdownTable += '<tr><td>Total</td><td>$' + total.toFixed(2) + '</td></tr>';
+      breakdownTable += '<tr><td>Total</td><td>$' + total.toFixed(2) + '</td><td></td></tr>';
     } else {
-      breakdownTable += '<tr><td colspan="2">No bill</td></tr>';
+      breakdownTable += '<tr><td colspan="3">No bill</td></tr>';
     }
-  
-    breakdownTable += '</table>';
-  
-    // Open the popup window and write the breakdown table to it
-   var popupWindow = window.open("https://chiasuen.github.io/Demo/popup.html", "popupWindow", "width=400, height=300");
-   popupWindow.document.write(breakdownTable);
-   popupWindow.document.close();
-  }
+
+  breakdownTable += '</table>';
+
+  // Open the popup window
+  var popupWindow = window.open('./popup.html', 'popupWindow', 'width=400, height=300');
+
+  // Wait for the popup window to finish loading
+  popupWindow.onload = function() {
+    // Append the breakdown table to the popup window's body
+    popupWindow.document.body.appendChild(new DOMParser().parseFromString(breakdownTable, 'text/html').body.firstChild);
+  };
+}
 </script>
     </div>
   </div>
