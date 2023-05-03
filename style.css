@@ -62,47 +62,4 @@
     .back-button:hover {
       background-color: #1873cc;
     }
-
-    .search {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .search input[type="text"] {
-      width: 60%;
-      max-width: 500px;
-      height: 40px;
-      padding: 10px;
-      border-radius: 20px 0 0 20px;
-      border: none;
-      font-size: 18px;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .search button {
-      height: 40px;
-      width: 100px;
-      border-radius: 0 20px 20px 0;
-      border: none;
-      background-color: #1E90FF;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .search button:hover {
-      background-color: #0066CC;
-    }
-
-    @media screen and (max-width: 640px) {
-      .search input[type="text"] {
-        width: 50%;
-      }
-
-      .search button {
-        width: 80px;
-      }
-    }
-
+ 
